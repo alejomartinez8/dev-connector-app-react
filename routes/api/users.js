@@ -52,10 +52,11 @@ router.post(
         avatar,
         password,
       });
-      //console.log('user = new User: ', user);
 
       const salt = await bcrypt.genSalt(10);
       user.password = await bcrypt.hash(password, salt);
+
+      //Create/save user
       await user.save();
 
       // Return jsonwebtoken
