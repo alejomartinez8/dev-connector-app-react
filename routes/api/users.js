@@ -9,7 +9,7 @@ const { check, validationResult } = require('express-validator');
 const User = require('../../models/User');
 
 // @route   POST api/users
-// @desc    Resiter user
+// @desc    Register user
 // @access  Public
 router.post(
   '/',
@@ -30,10 +30,10 @@ router.post(
     const { name, email, password } = req.body;
 
     try {
+      //Let see if user exist
       let user = await User.findOne({ email });
-
+      //console.log('let user = await User.findOne({ email }) :', user);
       if (user) {
-        //Let see if user exist
         console.log('user exist');
         return res.status(400).json({ errors: [{ msg: 'Usuario ya existe' }] });
       }
@@ -45,23 +45,23 @@ router.post(
         d: 'mm',
       });
 
+      // Exncrypt password
       user = new User({
         name,
         email,
         avatar,
         password,
       });
+      //console.log('user = new User: ', user);
 
-      // Exncrypt password
       const salt = await bcrypt.genSalt(10);
       user.password = await bcrypt.hash(password, salt);
       await user.save();
 
       // Return jsonwebtoken
-
       const payload = {
         user: {
-          id: user._id,
+          id: user.id,
         },
       };
 
