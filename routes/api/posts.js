@@ -48,7 +48,7 @@ router.get('/', auth, async (req, res) => {
     res.json(posts);
   } catch (err) {
     console.error(err.message);
-    res.statusCode(400).send('Server error');
+    res.statusCode(500).send('Server error');
   }
 });
 
@@ -68,7 +68,34 @@ router.get('/:id', auth, async (req, res) => {
     if (err.kind === 'ObjectId') {
       return res.status(404).json({ msg: 'Id not found' });
     }
-    res.statusCode(400).send('Server error');
+    res.statusCode(500).send('Server error');
+  }
+});
+
+// @route   DELETE api/posts/:id
+// @desc    Delete a post
+// @access  Private
+router.delete('/:id', auth, async (req, res) => {
+  try {
+    const post = await Post.findById(req.params.id);
+
+    if (!post) {
+      return res.status(404).json({ msg: 'Post no encontrado' });
+    }
+
+    //Check on the user
+    if (post.user.toString() !== req.user.id) {
+      return res.status(401).json({ msg: 'Usuario no autorizado' });
+    }
+
+    await post.remove();
+    res.json({ msg: 'Post eliminado' });
+  } catch (err) {
+    console.error(err.message);
+    if (err.kind === 'ObjectId') {
+      return res.status(404).json({ msg: 'Post no encontrado' });
+    }
+    res.statusCode(500).send('Server error');
   }
 });
 
