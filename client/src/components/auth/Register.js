@@ -45,7 +45,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
         <div className='form-group'>
           <input
             type='text'
-            placeholder='Name'
+            placeholder='Nombres y Apellidos'
             name='name'
             value={name}
             onChange={onChange}
@@ -55,7 +55,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
         <div className='form-group'>
           <input
             type='email'
-            placeholder='Email Address'
+            placeholder='Correo electrónico'
             name='email'
             value={email}
             onChange={onChange}
@@ -69,7 +69,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
         <div className='form-group'>
           <input
             type='password'
-            placeholder='Password'
+            placeholder='Contraseña'
             name='password'
             value={password}
             onChange={onChange}
@@ -79,7 +79,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
         <div className='form-group'>
           <input
             type='password'
-            placeholder='Confirm Password'
+            placeholder='Confirmar Contraseña'
             name='password2'
             value={password2}
             onChange={onChange}
