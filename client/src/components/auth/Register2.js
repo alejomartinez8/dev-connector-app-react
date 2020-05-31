@@ -1,10 +1,7 @@
 import React, { Fragment, useState } from 'react';
-import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
-import { setAlert } from '../../actions/alert';
-import PropTypes from 'prop-types';
+import axios from 'axios';
 
-const Register = ({ setAlert }) => {
+const Register = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -20,9 +17,27 @@ const Register = ({ setAlert }) => {
   const onSubmit = async (e) => {
     e.preventDefault();
     if (password !== password2) {
-      setAlert('Passwords no coinciden', 'danger', 3000);
+      console.log('Passwords no coinciden');
     } else {
-      console.log('Exitosos');
+      const newUSer = {
+        name,
+        email,
+        password,
+      };
+
+      try {
+        const config = {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        };
+
+        const body = JSON.stringify(newUSer);
+        const res = await axios.post('/api/users', body, config);
+        console.log(res.data);
+      } catch (err) {
+        console.error(err.response.data);
+      }
     }
   };
 
@@ -77,17 +92,13 @@ const Register = ({ setAlert }) => {
             minLength='6'
           />
         </div>
-        <input type='submit' className='btn btn-primary' value='Registrar' />
+        <input type='submit' className='btn btn-primary' value='Register' />
       </form>
       <p className='my-1'>
-        ¿Ya tienes cuenta? <Link to='/login'>Ingresar</Link>
+        Already have an account? <a href='login.html'>Sign In</a>
       </p>
     </Fragment>
   );
 };
 
-Register.propTypes = {
-  setAlert: PropTypes.func.isRequired,
-};
-
-export default connect(null, { setAlert })(Register);
+export default Register;

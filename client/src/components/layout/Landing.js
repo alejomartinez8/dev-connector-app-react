@@ -11,7 +11,7 @@ const Landing = () => {
             Cree un perfil / portafolio de desarrolladores, comparta
             publicaciones y obtenga ayuda de otros desarrolladores
           </p>
-          <div class='buttons'>
+          <div className='buttons'>
             <Link to='/register' class='btn btn-primary'>
               Registrarse
             </Link>
