@@ -8,6 +8,7 @@ import {
   LOGIN_SUCCESS,
   LOGIN_FAIL,
   LOGOUT,
+  CLEAR_PROFILE
 } from './types';
 import setAuthToken from '../utils/setAuthToken';
 
@@ -21,11 +22,11 @@ export const loadUser = () => async (dispatch) => {
     const res = await axios.get('/api/auth');
     dispatch({
       type: USER_LOADED,
-      payload: res.data,
+      payload: res.data
     });
   } catch (err) {
     dispatch({
-      type: AUTH_ERROR,
+      type: AUTH_ERROR
     });
   }
 };
@@ -34,8 +35,8 @@ export const loadUser = () => async (dispatch) => {
 export const register = ({ name, email, password }) => async (dispatch) => {
   const config = {
     headers: {
-      'Content-Type': 'application/json',
-    },
+      'Content-Type': 'application/json'
+    }
   };
   const body = JSON.stringify({ name, email, password });
 
@@ -44,7 +45,7 @@ export const register = ({ name, email, password }) => async (dispatch) => {
 
     dispatch({
       type: REGISTER_SUCCESS,
-      payload: res.data,
+      payload: res.data
     });
 
     dispatch(loadUser());
@@ -56,7 +57,7 @@ export const register = ({ name, email, password }) => async (dispatch) => {
     }
 
     dispatch({
-      type: REGISTER_FAIL,
+      type: REGISTER_FAIL
     });
   }
 };
@@ -65,8 +66,8 @@ export const register = ({ name, email, password }) => async (dispatch) => {
 export const login = (email, password) => async (dispatch) => {
   const config = {
     headers: {
-      'Content-Type': 'application/json',
-    },
+      'Content-Type': 'application/json'
+    }
   };
   const body = JSON.stringify({ email, password });
 
@@ -74,7 +75,7 @@ export const login = (email, password) => async (dispatch) => {
     const res = await axios.post('/api/auth', body, config);
     dispatch({
       type: LOGIN_SUCCESS,
-      payload: res.data,
+      payload: res.data
     });
 
     dispatch(loadUser());
@@ -86,7 +87,7 @@ export const login = (email, password) => async (dispatch) => {
     }
 
     dispatch({
-      type: LOGIN_FAIL,
+      type: LOGIN_FAIL
     });
   }
 };
@@ -94,4 +95,5 @@ export const login = (email, password) => async (dispatch) => {
 //Log out / Clear Profile
 export const logout = () => (dispatch) => {
   dispatch({ type: LOGOUT });
+  dispatch({ type: CLEAR_PROFILE });
 };
