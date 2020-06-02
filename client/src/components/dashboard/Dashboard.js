@@ -28,7 +28,7 @@ const Dashboard = ({
       ) : (
         <Fragment>
           <p>Todavía no tienes perfil, agrega algo de información</p>
-          <Link to='/create/profile' className='btn btn-primary m-1'>
+          <Link to='/create-profile' className='btn btn-primary m-1'>
             Crear Perfil
           </Link>
         </Fragment>
