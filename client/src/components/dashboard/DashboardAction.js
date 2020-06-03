@@ -9,11 +9,10 @@ const DashboardAction = () => {
         <i className='fas fa-user-circle text-primary'></i> Editar Perfil
       </Link>
       <Link to='/add-experience' className='btn btn-light'>
-        <i className='fab fa-black-tie text-primary'></i> Agregear Experiencia
+        <i className='fab fa-black-tie text-primary'></i> Agregar Experiencia
       </Link>
       <Link to='/add-education' className='btn btn-light'>
-        <i className='fas fa-graduation-cap text-primary'></i> Agregear
-        Educación
+        <i className='fas fa-graduation-cap text-primary'></i> Agregar Educación
       </Link>
     </div>
   );

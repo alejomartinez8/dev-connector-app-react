@@ -78,18 +78,18 @@ const ProfileForm = ({
       <form className='form' onSubmit={onSubmit}>
         <div className='form-group'>
           <select name='status' value={status} onChange={onChange}>
-            <option>* Select Professional Status</option>
-            <option value='Developer'>Developer</option>
-            <option value='Junior Developer'>Junior Developer</option>
-            <option value='Senior Developer'>Senior Developer</option>
-            <option value='Manager'>Manager</option>
-            <option value='Student or Learning'>Student or Learning</option>
-            <option value='Instructor'>Instructor or Teacher</option>
-            <option value='Intern'>Intern</option>
-            <option value='Other'>Other</option>
+            <option>* Selecciona tu estado profesional</option>
+            <option value='Developer'>Desarrollador</option>
+            <option value='Junior Developer'>Desarrollador Junior</option>
+            <option value='Senior Developer'>Desarrollador Senior</option>
+            <option value='Manager'>Administrador</option>
+            <option value='Student or Learning'>Estudiante o Aprendiz</option>
+            <option value='Instructor'>Instructor o Docente</option>
+            <option value='Intern'>Pasante</option>
+            <option value='Other'>Otro</option>
           </select>
           <small className='form-text'>
-            Give us an idea of where you are at in your career
+            Danos una idea de dónde estás en tu carrera
           </small>
         </div>
         <div className='form-group'>
@@ -101,7 +101,7 @@ const ProfileForm = ({
             onChange={onChange}
           />
           <small className='form-text'>
-            Could be your own company or one you work for
+            Podría ser tu propia empresa o una para la que trabajas
           </small>
         </div>
         <div className='form-group'>
@@ -113,7 +113,7 @@ const ProfileForm = ({
             onChange={onChange}
           />
           <small className='form-text'>
-            Could be your own or a company website
+            Podría ser el suyo o el sitio web de una empresa
           </small>
         </div>
         <div className='form-group'>
@@ -124,43 +124,42 @@ const ProfileForm = ({
             value={location}
             onChange={onChange}
           />
-          <small className='form-text'>
-            City & state suggested (eg. Boston, MA)
-          </small>
+          <small className='form-text'>Ciudad</small>
         </div>
         <div className='form-group'>
           <input
             type='text'
-            placeholder='* Skills'
+            placeholder='* Habilidades'
             name='skills'
             value={skills}
             onChange={onChange}
           />
           <small className='form-text'>
-            Please use comma separated values (eg. HTML,CSS,JavaScript,PHP)
+            Utilice valores separados por comas (por ejemplo, HTML, CSS,
+            JavaScript, PHP)
           </small>
         </div>
         <div className='form-group'>
           <input
             type='text'
-            placeholder='Github Username'
+            placeholder='Usuario Github'
             name='githubusername'
             value={githubusername}
             onChange={onChange}
           />
           <small className='form-text'>
-            If you want your latest repos and a Github link, include your
-            username
+            Si desea sus últimos repositorios y un enlace de Github, incluya su
+            nombre de usuario
           </small>
         </div>
         <div className='form-group'>
           <textarea
-            placeholder='A short bio of yourself'
+            placeholder='Una breve biografía tuya'
             name='bio'
             value={bio}
             onChange={onChange}
           />
-          <small className='form-text'>Tell us a little about yourself</small>
+          <small className='form-text'>Cuéntanos un poco sobre ti</small>
         </div>
 
         <div className='my-2'>
@@ -169,9 +168,9 @@ const ProfileForm = ({
             type='button'
             className='btn btn-light'
           >
-            Add Social Network Links
+            Agregar enlaces de redes sociales
           </button>
-          <span>Optional</span>
+          <span>Opcional</span>
         </div>
 
         {displaySocialInputs && (
@@ -235,7 +234,7 @@ const ProfileForm = ({
 
         <input type='submit' className='btn btn-primary my-1' />
         <Link className='btn btn-light my-1' to='/dashboard'>
-          Go Back
+          Atrás
         </Link>
       </form>
     </Fragment>
