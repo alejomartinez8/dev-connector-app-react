@@ -1,5 +1,5 @@
 const express = require('express');
-const request = require('request');
+const axios = require('axios');
 const config = require('config');
 const router = express.Router();
 const auth = require('../../middleware/auth');

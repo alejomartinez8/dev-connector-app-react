@@ -10,7 +10,10 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
     <ul>
       <li>
         <li>
-          <Link to='/profiles'>Perfiles</Link>
+          <Link to='/profiles'>Desarrolladores</Link>
+        </li>
+        <li>
+          <Link to='/posts'>Publicaciones</Link>
         </li>
         <Link to='/dashboard'>
           <i className='fas fa-user'></i>{' '}
