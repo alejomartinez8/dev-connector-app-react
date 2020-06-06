@@ -12,10 +12,10 @@ const Landing = ({ isAuthenticated }) => {
     <section className='landing'>
       <div className='dark-overlay'>
         <div className='landing-inner'>
-          <h1 className='x-large'>Conexión Desarrollo Software</h1>
+          <h1 className='x-large'>Conexión Academia 4.0 Pygmalion Tech</h1>
           <p className='lead'>
-            Cree un perfil / portafolio de desarrolladores, comparta
-            publicaciones y obtenga ayuda de otros desarrolladores
+            Crea un perfil/portafolio de desarrollo, comparte publicaciones y
+            obtenga ayuda de otros desarrolladores
           </p>
           <div className='buttons'>
             <Link to='/register' class='btn btn-primary'>
