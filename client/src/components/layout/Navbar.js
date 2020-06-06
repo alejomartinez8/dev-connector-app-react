@@ -5,9 +5,13 @@ import PropTypes from 'prop-types';
 import { logout } from '../../actions/auth';
 
 const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
+  //authLinks
   const authLinks = (
     <ul>
       <li>
+        <li>
+          <Link to='/profiles'>Perfiles</Link>
+        </li>
         <Link to='/dashboard'>
           <i className='fas fa-user'></i>{' '}
           <span className='hide-sm'>Dashboard</span>
@@ -25,7 +29,7 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
   const guestLinks = (
     <ul>
       <li>
-        <a href='#!'>Desarrolladores</a>
+        <a href='/profiles'>Desarrolladores</a>
       </li>
       <li>
         <Link to='/register'>Registro</Link>
@@ -52,11 +56,11 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
 
 Navbar.propTypes = {
   logout: PropTypes.func.isRequired,
-  auth: PropTypes.object.isRequired,
+  auth: PropTypes.object.isRequired
 };
 
 const mapStateToProps = (state) => ({
-  auth: state.auth,
+  auth: state.auth
 });
 
 export default connect(mapStateToProps, { logout })(Navbar);

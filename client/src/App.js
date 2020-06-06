@@ -9,6 +9,8 @@ import Dashboard from './components/dashboard/Dashboard';
 import ProfileForm from './components/profile-forms/ProfileForm';
 import AddExperience from './components/profile-forms/AddExperience';
 import AddEducation from './components/profile-forms/AddEducation';
+import Profiles from './components/profiles/Profiles';
+import Profile from './components/profile/Profile';
 import PrivateRoute from './routing/PrivateRoute';
 
 //Redux
@@ -19,7 +21,6 @@ import setAuthToken from './utils/setAuthToken';
 
 //CSS
 import './App.css';
-import { addEducation } from './actions/profile';
 
 if (localStorage.token) {
   setAuthToken(localStorage.token);
@@ -41,6 +42,8 @@ const App = () => {
             <Switch>
               <Route exact path='/register' component={Register} />
               <Route exact path='/login' component={Login} />
+              <Route exact path='/profiles' component={Profiles} />
+              <Route exact path='/profile/:id' component={Profile} />
               <PrivateRoute exact path='/dashboard' component={Dashboard} />
               <PrivateRoute
                 exact
