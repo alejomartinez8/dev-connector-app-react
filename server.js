@@ -4,11 +4,11 @@ const path = require('path');
 
 const app = express();
 
-// Init Middleware
-app.use(express.json({ extended: false }));
-
 // Connect Database
 connectDB();
+
+// Init Middleware
+app.use(express.json());
 
 // Define Routes
 app.use('/api/auth', require('./routes/api/auth'));
